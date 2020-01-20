@@ -12,8 +12,7 @@ Global variables that hold all the students and tell the number of students that
 let listItems = document.querySelector('.student-list').children;
 const numOfPageItems = 10;
 
-console.log(listItems[0]);
-
+console.log(listItems[0 + 6])
 
 /*** 
    Create the `showPage` function to hide all of the items in the 
@@ -30,11 +29,14 @@ console.log(listItems[0]);
        "invoke" the function 
 ***/
 
-function showPage (listItems) {
-
+/* 
+const showPage (list, page) => {
+   for(var i = 0; i < list.length; i ++){
+      if(list[i] >= list[i])
+   }
 
 }
-
+*/
 
 
 /*** 
