@@ -31,7 +31,7 @@ const numOfPageItems = 10;
 
 const showPage (list, page) => {
    for(var i = 0; i < list.length; i ++){
-      if((list[i] >= list[i + 9]) && (list[i] <= list[i + 10])){
+      if (list[i] <= list[page * 10]  ) {
          
       }
    }
