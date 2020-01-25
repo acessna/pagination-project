@@ -10,22 +10,11 @@ FSJS project 2 - List Filter and Pagination
 Global variables that hold all the students and tell the number of students that should be on each page.
 ***/
 let listOfStudents = document.querySelector('.student-list').children;
-const numOfPageItems = 10;
+
 
 
 /*** 
-   Create the `showPage` function to hide all of the items in the 
-   list except for the ten you want to show.
-
-   Pro Tips: 
-     - Keep in mind that with a list of 54 students, the last page 
-       will only display four.
-     - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when 
-       you initially define the function, and it acts as a variable 
-       or a placeholder to represent the actual function `argument` 
-       that will be passed into the parens later when you call or 
-       "invoke" the function 
+showPage function is used to tell the browser what students to show on the given page. 
 ***/
 
 
@@ -34,7 +23,7 @@ const showPage = (list, page) => {
    const firstStudent =  (page * 10)- 10;
 
    for(let i = 0; i < list.length; i ++){
-      if (list[i] < lastStudent && list[i] >= firstStudent) {
+      if (i < lastStudent && i >= firstStudent) {
          list[i].style.display = 'block';
       } else { 
          list[i].style.display = 'none';
@@ -43,16 +32,19 @@ const showPage = (list, page) => {
 
 };
 
-console.log(listOfStudents);
-
-showPage(listOfStudents, 1);
 
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
+const appendPageLinks = (list) => {
+   const numOfItemsInList = list.length;
+   console.log(numOfItemsInList);
 
+};
+
+appendPageLinks(listOfStudents);
 
 
 
