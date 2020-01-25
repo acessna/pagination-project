@@ -9,7 +9,7 @@ FSJS project 2 - List Filter and Pagination
 /*** 
 Global variables that hold all the students and tell the number of students that should be on each page.
 ***/
-let listItems = document.querySelector('.student-list').children;
+let listOfStudents = document.querySelector('.student-list').children;
 const numOfPageItems = 10;
 
 
@@ -29,14 +29,23 @@ const numOfPageItems = 10;
 ***/
 
 
-const showPage (list, page) => {
-   for(var i = 0; i < list.length; i ++){
-      if (list[i] <= list[page * 10]  ) {
-         
+const showPage = (list, page) => {
+   const lastStudent = page * 10;
+   const firstStudent =  (page * 10)- 10;
+
+   for(let i = 0; i < list.length; i ++){
+      if (list[i] < lastStudent && list[i] >= firstStudent) {
+         list[i].style.display = 'block';
+      } else { 
+         list[i].style.display = 'none';
       }
    }
 
-}
+};
+
+console.log(listOfStudents);
+
+showPage(listOfStudents, 1);
 
 
 /*** 
