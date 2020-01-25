@@ -11,7 +11,7 @@ Global variables that hold all the students and tell the number of students that
 ***/
 let listOfStudents = document.querySelector('.student-list').children;
 
-
+const itemsPerPage = 10;
 
 /*** 
 showPage function is used to tell the browser what students to show on the given page. 
@@ -32,20 +32,29 @@ const showPage = (list, page) => {
 
 };
 
-
+showPage(listOfStudents, 1);
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
 const appendPageLinks = (list) => {
-   const numOfItemsInList = list.length;
-   console.log(numOfItemsInList);
+   const numOfPages = Math.floor((list.length) / itemsPerPage);
+   const div = document.createElement('div');
+   div.className = "pagination";
+   const pageDiv = document.querySelector('.page'); 
+   pageDiv.appendChild(div);
+   div.innerHTML += '<ul class = "link-list"></ul>';
+   ul = document.querySelector('.link-list');
+   
 
+    for(let i = 0; i <= numOfPages; i++){
+       let pageNum = i+1;
+      ul.innerHTML += "<li><a>"+ pageNum +"</a></li>";
+   } 
 };
 
 appendPageLinks(listOfStudents);
-
 
 
 
