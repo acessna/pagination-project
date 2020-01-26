@@ -53,8 +53,7 @@ const appendPageLinks = (list) => {
       ul.innerHTML += "<li><a>"+ pageNum +"</a></li>";
    } 
 
-   //Loops through a tags listening for clicks to show the correct page
-   for(let i = 0; i <= a.length; i++){
+   for(let i = 0; i < a.length; i++){
       let pageNum = i+1;
       a[i].addEventListener('click', () => {
          showPage(listOfStudents, pageNum);
