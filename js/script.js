@@ -53,7 +53,8 @@ const appendPageLinks = (list) => {
       ul.innerHTML += "<li><a>"+ pageNum +"</a></li>";
    } 
 
-   for(let i = 0; i < a.length; i++){
+   //Loops through a tags listening for clicks to show the correct page
+   for(let i = 0; i <= a.length; i++){
       let pageNum = i+1;
       a[i].addEventListener('click', () => {
          showPage(listOfStudents, pageNum);
@@ -66,4 +67,3 @@ appendPageLinks(listOfStudents);
 
 
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
