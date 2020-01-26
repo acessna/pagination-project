@@ -46,12 +46,20 @@ const appendPageLinks = (list) => {
    pageDiv.appendChild(div);
    div.innerHTML += '<ul class = "link-list"></ul>';
    ul = document.querySelector('.link-list');
-   
+   const a = document.getElementsByTagName('a');
 
     for(let i = 0; i <= numOfPages; i++){
        let pageNum = i+1;
       ul.innerHTML += "<li><a>"+ pageNum +"</a></li>";
    } 
+
+   for(let i = 0; i < a.length; i++){
+      let pageNum = i+1;
+      a[i].addEventListener('click', () => {
+         showPage(listOfStudents, pageNum);
+      });
+   }
+   
 };
 
 appendPageLinks(listOfStudents);
