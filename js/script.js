@@ -39,7 +39,7 @@ showPage(listOfStudents, 1);
    functionality to the pagination buttons.
 ***/
 const appendPageLinks = (list) => {
-   const numOfPages = Math.floor((list.length) / itemsPerPage);
+   const numOfPages = list.length / itemsPerPage;
    const div = document.createElement('div');
    div.className = "pagination";
    const pageDiv = document.querySelector('.page'); 
@@ -48,21 +48,32 @@ const appendPageLinks = (list) => {
    ul = document.querySelector('.link-list');
    const a = document.getElementsByTagName('a');
 
-    for(let i = 0; i <= numOfPages; i++){
+    for(let i = 0; i < numOfPages; i++){
        let pageNum = i+1;
       ul.innerHTML += "<li><a>"+ pageNum +"</a></li>";
+      if(i === 0){
+         a[i].className = 'active';
+      }
    } 
 
    for(let i = 0; i < a.length; i++){
       let pageNum = i+1;
+      
       a[i].addEventListener('click', () => {
+      for(let i = 0; i < a.length; i++) {
+         a[i].className= '';
+      }
+      a[i].className = 'active';
          showPage(listOfStudents, pageNum);
       });
+
+
    }
    
 };
 
 appendPageLinks(listOfStudents);
+
 
 
 
