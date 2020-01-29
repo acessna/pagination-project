@@ -16,8 +16,6 @@ const itemsPerPage = 10;
 /*** 
 showPage function is used to tell the browser what students to show on the given page. 
 ***/
-
-
 const showPage = (list, page) => {
    const lastStudent = page * 10;
    const firstStudent =  (page * 10)- 10;
@@ -35,8 +33,7 @@ const showPage = (list, page) => {
 showPage(listOfStudents, 1);
 
 /*** 
-   Create the `appendPageLinks function` to generate, append, and add 
-   functionality to the pagination buttons.
+The appendPageLinks function generates the correct amount of links based on the number of pages needed for the list. It also listens for clicks on the links to make them active or inactive.
 ***/
 const appendPageLinks = (list) => {
    const numOfPages = list.length / itemsPerPage;
@@ -47,7 +44,8 @@ const appendPageLinks = (list) => {
    div.innerHTML += '<ul class = "link-list"></ul>';
    ul = document.querySelector('.link-list');
    const a = document.getElementsByTagName('a');
-
+   
+   //Loop that generates page links
     for(let i = 0; i < numOfPages; i++){
        let pageNum = i+1;
       ul.innerHTML += "<li><a>"+ pageNum +"</a></li>";
@@ -56,6 +54,7 @@ const appendPageLinks = (list) => {
       }
    } 
 
+   //Loop that listens for clicks on the page links, adds active class, and runs showPage function
    for(let i = 0; i < a.length; i++){
       let pageNum = i+1;
       
@@ -66,7 +65,6 @@ const appendPageLinks = (list) => {
       a[i].className = 'active';
          showPage(listOfStudents, pageNum);
       });
-
 
    }
    
